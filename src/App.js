@@ -1,13 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import Body from './Components/Body';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-3xl'>Hello Everyone Let's start NetFlix GPT
-
-      </h1>
-    </div>
+    <Body />
   );
 }
 
