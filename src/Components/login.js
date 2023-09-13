@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header';
 import { checkValidateData } from '../Utils/Validate';
-
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../Utils/FirebaseConfig";
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -12,13 +14,59 @@ const Login = () => {
 
   const email=useRef(null);
   const password= useRef(null);
+  const navigate= useNavigate();
 
   const handleButtonClick = () =>{ 
 
     // validation of Data
+        
            
            const message=   checkValidateData(email.current.value,password.current.value);
           seterrorMessage(message);
+
+          if(message) return   //if there will be a problem with my message that is there is a error message then the it would return the message if not then we will get the sign in/sigiup logic.
+
+          //We will be writing the signup/signin logic
+          if(!isSigninForm)
+          {
+                 //signup logic
+                 createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+                 .then((userCredential) => {
+                 
+                   const user = userCredential.user;
+                   console.log(user);
+                   navigate("/browse");
+                   
+                 })
+                 .catch((error) => {
+                   const errorCode = error.code;
+                   const errorMessage = error.message;
+                   seterrorMessage(errorCode + "----" + errorMessage);
+                   // ..
+                 });
+
+          }
+          else{
+                    //signin logic
+
+     signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+         .then((userCredential) => {
+    // Signed in 
+         const user = userCredential.user;
+         console.log(user);
+        navigate("/browse");
+    // ...
+        })
+       .catch((error) => {
+       const errorCode = error.code;
+       const errorMessage = error.message;
+
+       seterrorMessage(errorCode+"---"+ errorMessage);
+
+       });
+
+
+          } 
 
     //Now moving to Signin/Signup Page Accordingly
 

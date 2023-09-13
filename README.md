@@ -1,3 +1,9 @@
+# features that we have already built
+- form validation
+- useRef hook
+- Firebase registration/setup
+- Firebase deploy to production 
+- create Signup  user account in Firebase 
 
 
 
