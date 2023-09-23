@@ -4,9 +4,14 @@ import { checkValidateData } from '../Utils/Validate';
 import {  createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {auth} from "../Utils/FirebaseConfig";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../Utils/UserSlice';
+
 
 
 const Login = () => {
+
+  const dispatch=useDispatch();
 
   const[isSigninForm,setSigninForm] = useState(true);
 
@@ -31,16 +36,24 @@ const Login = () => {
           if(!isSigninForm)
           {
                  //signup logic
-                 createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+                 createUserWithEmailAndPassword(auth, email.current.value,password.current.value)  //creating a new user with email and Pasword
                  .then((userCredential) => {
                  
                    const user = userCredential.user;
-                   updateProfile(user, {
+                   updateProfile(user, {  // updating my profile with a display name and a PHotoURL and thus gets updated.
                     displayName: name.current.value, 
                     photoURL: "https://avatars.githubusercontent.com/u/119747037?v=4"
                   }).then(() => {
                     
-                    
+                    const {uid,email,displayName,photoURL} = auth.currentUser;
+                    // User is Signin/SignedUp
+                       dispatch(addUser(
+                        {uid:uid, 
+                        email:email,                             //After updating the User with name and PhotoURL we also update in the store.
+                         displayName:displayName,
+                         photoURL:photoURL
+                        }));
+                      
                    navigate("/browse");
                     
                   }).catch((error) => {

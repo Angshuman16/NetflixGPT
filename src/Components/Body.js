@@ -39,7 +39,10 @@ const Body = () => {
       if (user) {
         const {uid,email,displayName,photoURL} = user;
         // User is Signin/SignedUp
-           dispatch(addUser({uid:uid, email:email, displayName:displayName,photoURL:photoURL}));
+           dispatch(addUser({uid:uid, 
+            email:email,
+             displayName:displayName,
+             photoURL:photoURL}));
           
 
       } else {
