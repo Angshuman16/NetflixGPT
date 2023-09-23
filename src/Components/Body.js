@@ -5,6 +5,7 @@ import Header from './Header'
 import { createBrowserRouter } from 'react-router-dom'
 import { RouterProvider } from 'react-router-dom'
 import { onAuthStateChanged } from "firebase/auth";
+import Error from './Error'
 
 import {auth} from "../Utils/FirebaseConfig";
 import { useDispatch } from 'react-redux'
@@ -24,7 +25,11 @@ const Body = () => {
     {
       path:"/browse",
       element:<Browse />
-    }
+    },
+    {
+      path:"/error",
+      element:<Error />
+    },
   ])
 
 
@@ -32,9 +37,9 @@ const Body = () => {
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const {uid,email,displayName} = user;
+        const {uid,email,displayName,photoURL} = user;
         // User is Signin/SignedUp
-           dispatch(addUser({uid:uid, email:email, displayName:displayName}));
+           dispatch(addUser({uid:uid, email:email, displayName:displayName,photoURL:photoURL}));
           
 
       } else {

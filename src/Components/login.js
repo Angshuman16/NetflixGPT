@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Header from './Header';
 import { checkValidateData } from '../Utils/Validate';
-import {  createUserWithEmailAndPassword,signInWithEmailAndPassword} from "firebase/auth";
+import {  createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {auth} from "../Utils/FirebaseConfig";
 import { useNavigate } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ const Login = () => {
 
   const email=useRef(null);
   const password= useRef(null);
+  const name= useRef(null);
   const navigate= useNavigate();
 
   const handleButtonClick = () =>{ 
@@ -34,8 +35,18 @@ const Login = () => {
                  .then((userCredential) => {
                  
                    const user = userCredential.user;
-                   console.log(user);
+                   updateProfile(user, {
+                    displayName: name.current.value, 
+                    photoURL: "https://avatars.githubusercontent.com/u/119747037?v=4"
+                  }).then(() => {
+                    
+                    
                    navigate("/browse");
+                    
+                  }).catch((error) => {
+                    seterrorMessage(error.message);
+                  });
+                   
                    
                  })
                  .catch((error) => {
@@ -91,7 +102,7 @@ const Login = () => {
                 <h2 className='text-white text-4xl py-4 font-bold pb-5 m-2 mb-4'>{isSigninForm?"Sign In":"Sign Up"}</h2>
 
                 { !isSigninForm && (<input type='text'
-                 placeholder='Enter Name' 
+                 placeholder='Enter Name'  ref={name}
                  className='p-3 m-2 w-[18rem] bg-gray-700 rounded-lg text-white  '>
                   
 
