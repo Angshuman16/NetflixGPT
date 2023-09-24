@@ -35,7 +35,7 @@ const Login = () => {
           //We will be writing the signup/signin logic
           if(!isSigninForm)
           {
-                 //signup logic
+                 //if it is not Signin then signup logic
                  createUserWithEmailAndPassword(auth, email.current.value,password.current.value)  //creating a new user with email and Pasword
                  .then((userCredential) => {
                  
@@ -49,12 +49,12 @@ const Login = () => {
                     // User is Signin/SignedUp
                        dispatch(addUser(
                         {uid:uid, 
-                        email:email,                             //After updating the User with name and PhotoURL we also update in the store.
+                         email:email,                             //After updating the User with name and PhotoURL we also update in the store.
                          displayName:displayName,
                          photoURL:photoURL
                         }));
                       
-                   navigate("/browse");
+                   
                     
                   }).catch((error) => {
                     seterrorMessage(error.message);
@@ -78,7 +78,7 @@ const Login = () => {
     // Signed in 
          const user = userCredential.user;
          console.log(user);
-        navigate("/browse");
+        // navigate("/browse");
     // ...
         })
        .catch((error) => {

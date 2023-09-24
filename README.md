@@ -4,6 +4,15 @@
 - Firebase registration/setup
 - Firebase deploy to production 
 - create Signup  user account in Firebase 
+- implement signin in user API
+- Created REdux Store and setup the store
+- Implemented Signout
+- Update Profile
+- BugFix:User Authentication Routing, Signup user Profile pic update.
+- cleaned the code as when onAuthstatechange callback unmounts then it is Unsubscribed 
+- Registered for TMDB API
+- used and called their NowPlaying Movies and fetched it
+
 
 
 
