@@ -12,9 +12,9 @@ const MainContainer = () => {
 
     const MainMovie= movies[0];
 
-    console.log(MainMovie);
+   
 
-    const {original_title, overview} = MainMovie;
+    const {original_title, overview,id} = MainMovie;
 
 
 
@@ -24,7 +24,7 @@ const MainContainer = () => {
   return (
     <div>
         <VideoDetails  title={original_title} overview={overview}/>
-        <VideoBackground />
+        <VideoBackground movieId={id} />
         </div>
   )
 }

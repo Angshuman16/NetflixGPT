@@ -11,7 +11,7 @@ import { useEffect } from "react";
    const data= await fetch('https://api.themoviedb.org/3/movie/now_playing?&page=1', API_OPTIONS); 
     //Movie list API being called using the OPTIONS
     const json=  await data.json();
-    console.log(json.results);
+    
     dispatch(addNowPlayingMovies(json.results));
 }
 
