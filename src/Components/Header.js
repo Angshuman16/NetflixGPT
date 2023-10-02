@@ -65,8 +65,8 @@ const Header = () => {
 
   return (
     
-    <div className='absolute px-8 w-screen py-2 bg-gradient-to-r from-black z-10  flex justify-between'>
-       <img  className='w-[14rem]' src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
+    <div className='absolute px-8 w-screen py-1 h-[6rem] bg-gradient-to-b from-black z-10  flex justify-between'>
+       <img  className='w-[12rem]' src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
     
    { user &&
    
