@@ -10,7 +10,7 @@ const MainContainer = () => {
 
     if(movies == null) return;  // if my movies is null then return from there 
 
-    const MainMovie= movies[0];
+    const MainMovie= movies[2];
 
    
 
