@@ -12,6 +12,9 @@
 - cleaned the code as when onAuthstatechange callback unmounts then it is Unsubscribed 
 - Registered for TMDB API
 - used and called their NowPlaying Movies and fetched it
+- Built the Secondary Conatainer and Made the UI good and Efficient.
+- Fetched multiple API's for Popular Movies, Top Rated Movies and Placed it on the Secondary Conatainer
+
 
 
 
