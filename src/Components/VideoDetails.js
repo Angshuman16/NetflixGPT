@@ -8,8 +8,8 @@ const VideoDetails = ({title, overview}) => {
        <p className='w-1/3 py-6 text-white text-lg '>{overview}</p>
 
       <div className='flex px-0 ml-0'>
-       <button className='p-2 px-5 m-2 bg-white text-black font-semibold hover:bg-opacity-50 rounded-md hover:text-white '>Play </button>
-       <button className='p-2 px-5 m-2 bg-white bg-opacity-30 rounded-md text-white  hover:bg-white hover:text-black  '>More Info</button>
+       <button className=' p-3 px-5 m-1 text-[15px] bg-white text-black font-semibold hover:bg-opacity-50 rounded-md hover:text-white '>Play </button>
+       <button className='p-3 px-5 m-1 bg-white bg-opacity-30 rounded-md text-white  hover:bg-white hover:text-black  '>More Info</button>
 
        </div>
 
