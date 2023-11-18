@@ -19,12 +19,16 @@ const Header = () => {
   const navigate= useNavigate();
   const user= useSelector(store =>store.user)
 
+  const gptShow= useSelector(store =>store.gpt)
+
 
 
 
   const handleGPTSearchClick = () =>{
     
     dispatch(toggleGptSearchView());
+
+
   }
 
   const handleSignout = () =>{
@@ -75,7 +79,7 @@ const Header = () => {
 
   return (
     
-    <div className='absolute px-8 w-screen py-1 h-[6rem] bg-gradient-to-b from-black z-10  flex justify-between'>
+  <div className='absolute px-8 w-screen py-1 h-[6rem] bg-gradient-to-b from-black z-10  flex justify-between'>
        <img  className='w-[12rem]' src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" />
     
    { user &&
@@ -84,11 +88,13 @@ const Header = () => {
   
    
    <div className='flex p-2'>
-           <button className='p-2 m-3 h-10 bg-purple-800 text-white rounded-xl' onClick={handleGPTSearchClick}>GPT Search</button>
+    {gptShow.showgptSearch?(<button className='p-2 m-3 h-10 bg-purple-800 text-white rounded-xl' onClick={handleGPTSearchClick}>Home Page</button>):(<button className='p-2 m-3 h-10 bg-purple-800 text-white rounded-xl' onClick={handleGPTSearchClick}>GPT Search</button>)}
+           
            <img className='w-12 h-12' src={user?.photoURL}></img>
 
-           <button className='m-3 p-2 bg-slate-500 text-white h-10 rounded-xl hover:bg-black  ' onClick={handleSignout}>SignOut</button>
-    </div>)
+           <button className='m-3 p-2 h-10 bg-purple-800 text-white  rounded-xl  ' onClick={handleSignout}>Sign Out</button>
+    </div>
+    )
     
 
    }
