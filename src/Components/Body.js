@@ -7,6 +7,8 @@ import { RouterProvider } from 'react-router-dom'
 
 import Error from './Error'
 
+import CurrentMovieContainer from './CurrentMovieContainer'
+
 
 
 
@@ -30,6 +32,11 @@ const Body = () => {
       path:"/error",
       element:<Error />
     },
+    {
+      path:"/watch",
+      element:<CurrentMovieContainer />
+    }
+   
   ])
 
 
