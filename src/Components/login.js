@@ -42,7 +42,7 @@ const Login = () => {
                    const user = userCredential.user;
                    updateProfile(user, {  // updating my profile with a display name and a PHotoURL and thus gets updated.
                     displayName: name.current.value, 
-                    photoURL: "https://avatars.githubusercontent.com/u/119747037?v=4"
+                    photoURL: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg",
                   }).then(() => {
                     
                     const {uid,email,displayName,photoURL} = auth.currentUser;
@@ -51,7 +51,7 @@ const Login = () => {
                         {uid:uid, 
                          email:email,                             //After updating the User with name and PhotoURL we also update in the store.
                          displayName:displayName,
-                         photoURL:photoURL
+                         photoURL:photoURL,
                         }));
                       
                    
@@ -114,7 +114,7 @@ const Login = () => {
 
                 <h2 className='text-white text-4xl py-4 font-bold pb-5 m-2 mb-4'>{isSigninForm?"Sign In":"Sign Up"}</h2>
 
-                { !isSigninForm && (<input type='text'
+                { !isSigninForm && (<input type='text'  //if it is not sigin then it is a Signup form
                  placeholder='Enter Name'  ref={name}
                  className='p-3 m-2 w-[18rem] bg-gray-700 rounded-lg text-white  '>
                   
