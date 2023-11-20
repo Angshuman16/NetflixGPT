@@ -30,13 +30,13 @@ const Browse = () => {
         showgptSearch? 
         (<GPTSearch />):(
 
-          <>
+          <div>
 
          
           <MainContainer />
           <SecondaryContainer />
           
-          </>
+          </div>
         )
       }
       
