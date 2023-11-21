@@ -42,7 +42,7 @@ const Login = () => {
                    const user = userCredential.user;
                    updateProfile(user, {  // updating my profile with a display name and a PHotoURL and thus gets updated.
                     displayName: name.current.value, 
-                    photoURL: "https://byuc.files.wordpress.com/2012/07/avat-2.jpg",
+                    photoURL: "",
                   }).then(() => {
                     
                     const {uid,email,displayName,photoURL} = auth.currentUser;
