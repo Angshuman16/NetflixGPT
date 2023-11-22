@@ -89,9 +89,9 @@ const Header = () => {
    
    <div className='flex p-2'>
     {gptShow.showgptSearch?(<button className='p-2 m-3 h-10 bg-purple-800 text-white rounded-xl' onClick={handleGPTSearchClick}>Home Page</button>):(<button className='p-2 m-3 h-10 bg-purple-800 text-white rounded-xl' onClick={handleGPTSearchClick}>GPT Search</button>)}
-           
-           <img className='w-12 h-12' src={user?.photoURL}></img>
+            {/* <img className='w-12 h-12' src={user?.photoURL}></img> */}
 
+          
            <button className='m-3 p-2 h-10 bg-purple-800 text-white  rounded-xl  ' onClick={handleSignout}>Sign Out</button>
     </div>
     )

@@ -63,11 +63,6 @@ const GPTSearchbar = () => {
 
 
 
-
-
-
-
-
   };
   
   const searchText= useRef(null);
